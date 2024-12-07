@@ -1,4 +1,4 @@
 export function evalStrict(str: string): any {
-    'use strict';
-    return eval(str);
+  'use strict';
+  return eval(str);
 }
