@@ -6,6 +6,17 @@ export type CamelCase<S> =
     ? `${First}${Uppercase<Second>}${CamelCase<Rest>}`
     : S;
 
+/**
+ * Converts all keys in an object to camelCase.
+ * @example
+ * type SnakedRecord = {
+ *  user_id: number;
+ * }
+ * type CameledRecord = KeysToCamelCase<SnakedRecord>;
+ * // CameledRecord = {
+ * //   userId: number;
+ * // }
+ */
 export type KeysToCamelCase<T> = T extends Record<string, unknown>
   ? {
     [K in keyof T as CamelCase<K>]: KeysToCamelCase<T[K]>;
